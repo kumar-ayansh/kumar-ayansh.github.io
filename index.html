@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayansh Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<header>
+<nav class="navbar">
+<div class="logo">Portfolio</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="hamburger">
+<span></span><span></span><span></span>
+</div>
+</nav>
+</header>
+
+<section id="home" class="hero">
+<div class="hero-content">
+<h1>Hi, I'm <span>Ayansh kumar Yadav</span></h1>
+<h2>Web Developer & Python Scripter, Full Using ai tools</h2>
+<p>Building secure systems and powerful web experiences.</p>
+<a href="#projects" class="btn">View My Work</a>
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="container">
+<div class="about-img"><img src="ayansh.jpg"></div>
+<div class="about-text">
+<h2>About Me</h2>
+<p>My self AYANSH KUMAR YADAV, I am student of COMPUTER SCIENCE ENGINEERING, and I am completing my diploma from GOVT POLYTECHNIC MAWANA KHURD MEERUT.</p>
+<p>My expertise includes Web Development, Python scripting, and automation.</p>
+</div>
+</div>
+</section>
+
+<section id="skills" class="skills">
+<h2>My Skills</h2>
+<div class="skill"><p>HTML</p><div class="progress"><div class="progress-bar" data-progress="90"></div></div></div>
+<div class="skill"><p>CSS</p><div class="progress"><div class="progress-bar" data-progress="85"></div></div></div>
+<div class="skill"><p>JavaScript</p><div class="progress"><div class="progress-bar" data-progress="80"></div></div></div>
+<div class="skill"><p>Python Scripting</p><div class="progress"><div class="progress-bar" data-progress="25"></div></div></div>
+</section>
+
+<section id="projects" class="projects">
+<h2>Projects</h2>
+<div class="project-grid">
+<div class="card"><img src="college.png"><h3>GP MAWANA GALLERY</h3><p>GP mawana college profiles photos.</p><a href="https://kumar-ayansh.github.io/gpmawana/" class="btn">View Project</a></div>
+<div class="card"><img src="cricket logo.jpg"><h3>AYANSH CRICKET CLUB</h3><p>Modern responsive CRICKET CLUB WEB.</p><a href="https://kayansh.netlify.app" class="btn"traget="blank">View Project</a></div>
+<div class="card"><img src="upcoming.jpg"><h3>Upcoming</h3><p>Some tools are upcoming ! .</p><a href="https://as2.ftcdn.net/jpg/04/41/18/25/1000_F_441182579_7uexqdyX4X2zeehFbg1ohiFTEpVp7b8L.jpg" class="btn">View Project</a></div>
+</div>
+</section>
+
+<section id="services" class="services">
+<h2>Services</h2>
+<div class="service-grid"><div class="card"><h3>Web Development</h3><p>Responsive modern websites.</p></div></div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact Me</h2>
+<form id="contact-form">
+<input type="text" name="from_name" placeholder="Name" required>
+<input type="email" name="from_email" placeholder="Email" required>
+<textarea name="message" placeholder="Message" required></textarea>
+<button type="submit" class="btn">Send Message</button>
+</form>
+</section>
+
+<footer>
+<p>© 2026 My Portfolio</p>
+<div class="socials">
+<a href="https://github.com/kumar-ayansh">GitHub</a>
+<a href="https://linkedin.com/in/ayansh-kumar-yadav-5b5582395">LinkedIn</a>
+<a href="https://x.com/kumar__ayansh">Twitter</a>
+<a href="https://www.instagram.com/cristia.ai">Instagram</a>
+</div>
+</footer>
+
+<button id="topBtn">↑</button>
+
+<script>
+  // EmailJS Initialize
+  emailjs.init("Nx04RxaSKagsLnesx");
+
+  // Form Submit Handler
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Send main message to YOU
+    emailjs.sendForm('service_cb20ajp', 'template_sudkgds', this)
+      .then(function(response) {
+        console.log("Main email sent!", response);
+        
+        // Send auto-reply to USER
+        emailjs.sendForm('service_cb20ajp', 'template_17z6zfq', this)
+          .then(function(res) {
+            console.log("Auto-reply sent!", res);
+            alert("✅ Message sent! Check your email for confirmation.");
+          })
+          .catch(function(err) {
+            console.log("Auto-reply failed:", err);
+            
+          });
+        
+        document.getElementById('contact-form').reset();
+      })
+      .catch(function(error) {
+        console.log("Main email failed:", error);
+        alert("❌ Failed to send. Error: " + JSON.stringify(error));
+      });
+  });
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
