@@ -48,26 +48,27 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
+/* हेडिंग को बिना किसी गड़बड़ी के हमेशा सेंटर में रखने के लिए आधुनिक तरीका */
 h2 {
     font-size: 2.8rem;
-    margin-bottom: 2rem;
+    margin: 0 auto 2.5rem auto;
     text-align: center;
     background: linear-gradient(135deg, #fff 0%, var(--primary) 80%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
+    width: fit-content;
 }
 
 h2::after {
     content: '';
     position: absolute;
     bottom: -12px;
-    left: 25%;
-    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
     height: 4px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);
     border-radius: 4px;
@@ -79,7 +80,7 @@ section {
     margin: 0 auto;
 }
 
-/* === Navbar (Glassmorphism) === */
+/* === Navbar === */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -203,12 +204,13 @@ section {
     margin-bottom: 1.5rem;
     color: var(--text-gray);
     text-align: left;
-    left: 0;
-    transform: none;
     background: none;
     -webkit-background-clip: unset;
     background-clip: unset;
     color: var(--text-gray);
+    display: inline-block;
+    width: auto;
+    margin: 0 0 1.5rem 0;
 }
 
 .hero-content h2::after {
@@ -251,17 +253,21 @@ section {
     align-items: center;
     gap: 4rem;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .about-img {
     flex: 1;
     min-width: 300px;
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 
 .about-img img {
     width: 100%;
-    max-width: 400px;
+    max-width: 380px;
+    height: auto;
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     box-shadow: var(--shadow), var(--glow);
     border: 3px solid var(--primary);
@@ -277,6 +283,16 @@ section {
 
 .about-text {
     flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    margin: 0 0 1.5rem 0; /* डेस्कटॉप पर लेफ्ट अलाइनमेंट के लिए */
+}
+
+.about-text h2::after {
+    left: 0;
+    transform: none;
 }
 
 .about-text p {
@@ -285,7 +301,7 @@ section {
     font-size: 1.1rem;
 }
 
-/* === Skills Section (Animated Progress Bars) === */
+/* === Skills Section === */
 .skills {
     background: rgba(10, 10, 15, 0.5);
     backdrop-filter: blur(5px);
@@ -343,12 +359,13 @@ section {
     100% { transform: translateX(100%); }
 }
 
-/* === Projects & Services Cards (Glassmorphism) === */
+/* === Projects & Services Cards === */
 .project-grid, .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 3rem;
+    width: 100%;
 }
 
 .card {
@@ -361,6 +378,10 @@ section {
     transition: var(--transition);
     box-shadow: var(--shadow);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .card:hover {
@@ -371,7 +392,7 @@ section {
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
     border-radius: 20px;
     margin-bottom: 1.5rem;
@@ -395,6 +416,7 @@ section {
 .card p {
     color: var(--text-gray);
     margin-bottom: 1.8rem;
+    flex-grow: 1;
 }
 
 .card .btn {
@@ -404,6 +426,8 @@ section {
     color: var(--primary);
     border: 2px solid var(--primary);
     box-shadow: none;
+    align-self: center;
+    width: fit-content;
 }
 
 .card .btn:hover {
@@ -412,7 +436,7 @@ section {
     box-shadow: 0 0 20px var(--primary);
 }
 
-/* Services specific */
+/* Services */
 .services .card {
     padding: 2.5rem 2rem;
 }
@@ -421,7 +445,7 @@ section {
     margin-top: 0.5rem;
 }
 
-/* === Contact Form (Glass) === */
+/* === Contact Form === */
 .contact {
     background: rgba(20, 20, 30, 0.4);
     backdrop-filter: blur(8px);
@@ -616,13 +640,58 @@ footer p {
         font-size: 1.5rem;
     }
     
+    /* === [फिक्स]: मोबाइल पर About Section का संरेखण (Alignment) === */
     .about .container {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 2rem !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
+    .about-img {
+        width: 100% !important;
+        max-width: 260px !important;
+        min-width: unset !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+
     .about-img img {
-        max-width: 280px;
+        width: 100% !important;
+        max-width: 260px !important;
+        height: auto !important;
+    }
+
+    .about-text {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 0 10px !important;
+    }
+
+    /* मोबाइल पर "About Me" हेडिंग को बिल्कुल सेंटर में रखने के लिए */
+    .about-text h2 {
+        font-size: 2.2rem !important;
+        margin: 0 auto 1.5rem auto !important;
+        display: block !important;
+        width: fit-content !important;
+    }
+
+    .about-text h2::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 60% !important;
+    }
+
+    .about-text p {
+        text-align: center !important;
+        width: 100% !important;
     }
     
     .skills {
