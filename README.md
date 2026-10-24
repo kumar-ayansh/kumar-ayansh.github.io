@@ -32,7 +32,7 @@
 | Project | What it does | Tech |
 | --- | --- | --- |
 | [HRMS](https://github.com/kumar-ayansh/hrms) | HUMEN RESOURCES AND MANAGEMENT SYSTEM| HR Synergy |
-| [GPMTC](https://gpmtc.netlify.app/) | GOVT POLYTECHNIC MAWANA KHURD GALLERY| Post Your College Memories |
+| [GPMTC](https://gpm-gallery.netlify.app/) | GOVT POLYTECHNIC MAWANA KHURD GALLERY| Post Your College Memories |
 | [Portfolio](https://ayansh.me) | My personal website with all my projects | HTML, CSS, JavaScript C , JAVA |
 | [Varanasi Cafe](https://varanasi-cafe.onrender.com/order.html) | Restaurant Website & Cafe website| To Manage Your Cafe With Online|
 | [Attendance System](https://endearing-jalebi-022edd.netlify.app/) | High level Unique Mobile Attendance| For College School Hospital etc|
